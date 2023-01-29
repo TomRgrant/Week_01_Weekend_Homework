@@ -65,4 +65,20 @@ def customer_can_afford_pet(customer, new_pet):
     if customer['cash'] >= new_pet['price']:
         can_buy_new_pet = True
     return can_buy_new_pet
-    
+
+def sell_pet_to_customer(pet_shop, pet, customer):
+    if pet == None:
+        pass
+    else:
+        customer_can_afford = customer_can_afford_pet(customer, pet)
+        if customer_can_afford == True:
+            remove_customer_cash(customer, pet['price'])
+            remove_pet_by_name(pet_shop, pet)
+            add_pet_to_customer(customer, pet)
+            add_or_remove_cash(pet_shop, pet['price'])
+            pet_shop['admin']['pets_sold'] += 1
+            get_customer_pet_count(customer)
+            get_pets_sold(pet_shop)
+            get_customer_cash(customer)
+            get_total_cash(pet_shop)
+            get_customer_pet_count(customer)
