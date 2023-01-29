@@ -152,7 +152,6 @@ class TestPetShop(unittest.TestCase):
 
     # --- OPTIONAL ---
 
-    @unittest.skip("delete this line to run the test")
     def test_customer_can_afford_pet__sufficient_funds(self):
         customer = self.customers[0]
         can_buy_pet = customer_can_afford_pet(customer, self.new_pet)
